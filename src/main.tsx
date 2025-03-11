@@ -1,31 +1,27 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { WordSearch } from './components/WordSearch'
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter'
 
-const app = document.querySelector<HTMLDivElement>('#app')
+// Example puzzle data
+const words = ['HELLO', 'WORLD', 'PUZZLE', 'GAME'];
+const grid = [
+  ['H', 'W', 'O', 'R', 'L', 'D', 'X'],
+  ['E', 'X', 'P', 'X', 'X', 'X', 'X'],
+  ['L', 'X', 'U', 'X', 'X', 'X', 'X'],
+  ['L', 'X', 'Z', 'X', 'X', 'X', 'X'],
+  ['O', 'X', 'Z', 'X', 'X', 'X', 'X'],
+  ['X', 'X', 'L', 'X', 'X', 'X', 'X'],
+  ['X', 'X', 'E', 'X', 'X', 'X', 'X'],
+];
 
-if (app) {
-  app.innerHTML = `
-    <div>
-      <a href="https://vite.dev" target="_blank">
-        <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-        <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-      </a>
-      <h1>Hello Vite!</h1>
-      <div class="card">
-        <button id="counter" type="button"></button>
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <div className="min-h-screen bg-gray-100 py-8">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold text-center py-4">Word Search Puzzle</h1>
+        <WordSearch words={words} grid={grid} />
       </div>
-      <p class="read-the-docs">
-        Click on the Vite logo to learn more
-      </p>
     </div>
-  `
-
-  const counterButton = document.querySelector<HTMLButtonElement>('#counter')
-  if (counterButton) {
-    setupCounter(counterButton)
-  }
-} 
+  </React.StrictMode>
+) 
