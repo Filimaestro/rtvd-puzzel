@@ -24,4 +24,4 @@ Instructions for setup and development will be added soon.
 
 ## License
 
-[Add your license information here] 
+[Add your license information here]
